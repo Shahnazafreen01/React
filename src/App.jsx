@@ -4,7 +4,7 @@ import Hero from "./components/Hero";
 import AuthFlow from "./components/AuthFlow";
 import AboutProject from "./components/AboutProject";
 import FeatureCard from "./components/FeatureCard";
-import Footer from "./components/Footer";git
+import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
