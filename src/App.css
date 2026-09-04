@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 .App {
   text-align: center;
 }
@@ -38,6 +39,8 @@
   }
 }
 =======
+=======
+>>>>>>> origin/main
 * {
   box-sizing: border-box;
   margin: 0;
@@ -523,5 +526,9 @@ body {
     flex-wrap: wrap;
     justify-content: center;
   }
+<<<<<<< HEAD
 }
 >>>>>>> 2d61c4c37dc45e5528f5c32caf9c606a25e696d4
+=======
+}
+>>>>>>> origin/main

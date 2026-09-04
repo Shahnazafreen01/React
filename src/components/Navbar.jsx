@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
@@ -25,6 +26,8 @@ export default function Navbar() {
   );
 }
 =======
+=======
+>>>>>>> origin/main
 import React from "react";
 
 function Navbar() {
@@ -50,5 +53,9 @@ function Navbar() {
   );
 }
 
+<<<<<<< HEAD
 export default Navbar;
 >>>>>>> 2d61c4c37dc45e5528f5c32caf9c606a25e696d4
+=======
+export default Navbar;
+>>>>>>> origin/main
