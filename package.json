@@ -1,15 +1,26 @@
 {
+<<<<<<< HEAD
   "name": "internship",
+=======
+  "name": "myapp",
+>>>>>>> 2d61c4c37dc45e5528f5c32caf9c606a25e696d4
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
+<<<<<<< HEAD
     "@testing-library/react": "^16.3.3",
     "@testing-library/user-event": "^13.5.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-router-dom": "^7.18.3",
+=======
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+>>>>>>> 2d61c4c37dc45e5528f5c32caf9c606a25e696d4
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },

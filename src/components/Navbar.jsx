@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
@@ -23,3 +24,31 @@ export default function Navbar() {
     </div>
   );
 }
+=======
+import React from "react";
+
+function Navbar() {
+  return (
+    <nav className="navbar">
+
+      <div className="logo">
+        WebTech Practice
+      </div>
+
+      <div className="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#theme">Theme</a>
+        <a href="#login">Login</a>
+
+        <button className="signup-btn">
+          Sign Up
+        </button>
+      </div>
+
+    </nav>
+  );
+}
+
+export default Navbar;
+>>>>>>> 2d61c4c37dc45e5528f5c32caf9c606a25e696d4
