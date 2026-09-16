@@ -1,72 +1,182 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import styles from "./LoginStyle";
+import { Link } from "react-router-dom";
+import "./LoginStyle.jsx";
 
-export default function Login() {
-  const navigate = useNavigate();
-
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
 
-  const handleLogin = (e) => {
+  const [errors, setErrors] = useState({});
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    // Email validation
+    if (!email.trim()) {
+      newErrors.email = "Email address is required";
+    } else if (
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    ) {
+      newErrors.email = "Enter a valid email address";
+    }
+
+    // Password validation
+    if (!password) {
+      newErrors.password = "Password is required";
+    } else if (password.length < 6) {
+      newErrors.password =
+        "Password must be at least 6 characters long";
+    }
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    alert("Login successful!");
+    if (validateForm()) {
+      console.log("Login Data:", {
+        email,
+        password,
+        rememberMe,
+      });
 
-    navigate("/");
+      alert("Login successful!");
+
+      // Clear form
+      setEmail("");
+      setPassword("");
+      setRememberMe(false);
+    }
   };
 
   return (
-    <div style={styles.page}>
+    <div className="login-page">
 
-      <form
-        style={styles.box}
-        onSubmit={handleLogin}
-      >
+      <div className="login-card">
 
-        <h2 style={styles.title}>
-          Login
-        </h2>
+        {/* Heading */}
+        <h1>Welcome Back</h1>
 
-        <input
-          style={styles.input}
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) =>
-            setEmail(e.target.value)
-          }
-          required
-        />
+        <p className="login-subtitle">
+          Sign in to continue to your dashboard
+        </p>
 
-        <input
-          style={styles.input}
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) =>
-            setPassword(e.target.value)
-          }
-          required
-        />
+        <form onSubmit={handleSubmit}>
 
-        <button
-          type="submit"
-          style={styles.button}
-        >
-          Login
-        </button>
+          {/* Email */}
+          <div className="login-form-group">
 
-        <button
-          type="button"
-          style={styles.linkButton}
-          onClick={() => navigate("/signup")}
-        >
-          Create an account
-        </button>
+            <label>Email Address:</label>
 
-      </form>
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                setErrors({
+                  ...errors,
+                  email: "",
+                });
+              }}
+            />
+
+            {errors.email && (
+              <span className="login-error">
+                {errors.email}
+              </span>
+            )}
+
+          </div>
+
+          {/* Password */}
+          <div className="login-form-group">
+
+            <label>Password:</label>
+
+            <input
+              type="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                setErrors({
+                  ...errors,
+                  password: "",
+                });
+              }}
+            />
+
+            <p className="password-info">
+              Password must be at least 6 characters long.
+            </p>
+
+            {errors.password && (
+              <span className="login-error">
+                {errors.password}
+              </span>
+            )}
+
+          </div>
+
+          {/* Remember + Forgot */}
+          <div className="login-options">
+
+            <label className="remember-me">
+
+              <input
+                type="checkbox"
+                checked={rememberMe}
+                onChange={(e) =>
+                  setRememberMe(e.target.checked)
+                }
+              />
+
+              <span>
+                Remember me for 30 days
+              </span>
+
+            </label>
+
+            <a
+              href="#forgot"
+              className="forgot-password"
+            >
+              Forgot password?
+            </a>
+
+          </div>
+
+          {/* Sign In Button */}
+          <button
+            type="submit"
+            className="signin-button"
+          >
+            Sign in
+          </button>
+
+        </form>
+
+        {/* Signup */}
+        <p className="signup-text">
+          New to WebTech Practice?
+
+          <Link
+            to="/signup"
+            className="create-account"
+          >
+            Create an account
+          </Link>
+        </p>
+
+      </div>
 
     </div>
   );
-}
+};
+
+export default Login;
